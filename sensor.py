@@ -4,8 +4,9 @@ pygame.init()
 
 class Sensor:
     def __init__(self, screen):
-
+        #To adjust sensitivity of pixel groups for activation change this. Currently checking is done with if self.sensitivity>average then actuate
         self.sensitivity = 220
+
         self.sensWinWidth = 200
         self.sensWinHeight = 200
         self.screen = screen
@@ -22,15 +23,11 @@ class Sensor:
         self.activationColor = (200,200,0)
 
     def getAvgColor( self, x ,y ,n, image):
-        """ Returns a 3-tuple containing the RGB value of the average color of the
-        given square bounded area of length = n whose origin (top left corner) 
-        is (x, y) in the given image"""
- 
         self.r, self.g, self.b = 0, 0, 0
         self.counter = 0
-        for s in range(x, x+n+1):
-            for t in range(y, y+n+1):
-                self.pixlB, self.pixlG, self.pixlR = image[s, t]  
+        for i in range(x, x+n+1):
+            for j in range(y, y+n+1):
+                self.pixlB, self.pixlG, self.pixlR = image[i, j]  
                 self.r += self.pixlR
                 self.g += self.pixlG
                 self.b += self.pixlB
