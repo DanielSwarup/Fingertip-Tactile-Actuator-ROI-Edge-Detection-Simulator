@@ -2,7 +2,7 @@
 from camera import*
 
 def main():
-    cameraTest = Camera()
+    camera = Camera()
 
 if __name__ == "__main__":
     main()
